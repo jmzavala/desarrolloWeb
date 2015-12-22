@@ -1,0 +1,73 @@
+0.- https://nodejs.org/en/
+
+1.- Crear npm
+2.- Revisar ambiente:
+	node -v
+	npm -v
+
+3.- instalar bibliotecas/packages
+	-Global 
+	-Local
+
+4.- Descripción de dependencias para un proyecto package.json:
+	npm init
+
+
+
+5.- Ejemplo:
+
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "servidor",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "keywords": [
+    "web"
+  ],
+  "author": "Juan Manuel Zavala Olave <jmzavala.olv@gmail.com> (https://github.com/jmzavala)",
+  "license": "MIT"
+}
+
+
+6.- Servicio:
+
+	Instalar express.js
+
+	npm install express --save
+
+
+
+7.- Código:
+
+var express = require('express')
+var app = express()
+
+var asistentes = {status:0, users:[
+
+{id:1,nombre:'Juan Manuel', apellido:'Zavala', alias:'jm'},
+{id:2,nombre:'Carlos', apellido:'Duran', alias:'cardura'},
+{id:3,nombre:'Carolina', apellido:'Vasconcelo', alias:'carizu'},
+{id:4,nombre:'Esteban', apellido:'Conejeros', alias:'esteban'},
+{id:5,nombre:'Francisco', apellido:'Gamboa', alias:'fgamboa'},
+{id:6,nombre:'Carlos', apellido:'Sepulveda', alias:'small'},
+{id:7,nombre:'Cristian', apellido:'Maza', alias:'cmaza'}
+
+]};
+
+app.get('/', function (req, res) {
+  res.json(asistentes);
+})
+
+var server = app.listen(3000, function () {
+
+  var host = server.address().address
+  var port = server.address().port
+
+  console.log('Example app listening at http://%s:%s', host, port)
+
+})
+
+
